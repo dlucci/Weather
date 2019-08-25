@@ -3,9 +3,7 @@ package com.dlucci.weather
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-
 class WeatherXTensionTest {
-
 
     @Test
     fun testToFarenheith() {

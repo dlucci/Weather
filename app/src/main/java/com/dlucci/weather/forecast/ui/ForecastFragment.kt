@@ -17,16 +17,18 @@ import com.dlucci.weather.inflate
 import com.dlucci.weather.toFarenheit
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.forecast_fragment.currentCondition
 import kotlinx.android.synthetic.main.forecast_fragment.icon
 import kotlinx.android.synthetic.main.forecast_fragment.location
 import kotlinx.android.synthetic.main.forecast_fragment.temperature
-import javax.inject.Inject
 
 class ForecastFragment : Fragment() {
 
     @Inject
     lateinit var service: ForecastService
+
+    val imageUrl = "https://openweathermap.org/img/wn/%s@2x.png"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,10 +51,18 @@ class ForecastFragment : Fragment() {
 
         component.inject(this)
 
-        service.getCurrentWeather("London,uk", "1c9b44ce2c83f81848124307d216d1a9")
+        service.getCurrentWeather("London,uk",
+            "1c9b44ce2c83f81848124307d216d1a9")
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .subscribe ({ t -> showData(t) }, {t -> showError(t)})
+            .subscribe(
+                {
+                    t -> showData(t)
+                },
+                {
+                    t -> showError(t)
+                }
+            )
     }
 
     private fun showError(t: Throwable?) {
@@ -62,8 +72,9 @@ class ForecastFragment : Fragment() {
     private fun showData(forecast: Forecast?) {
         location.text = forecast?.name
         temperature.text = String.format("%s°F", forecast?.main?.temp?.toFarenheit())
-        currentCondition.text = String.format("%s:  ", forecast?.weather?.get(0)?.description)
-        icon.load("https://openweathermap.org/img/wn/${forecast?.weather?.get(0)?.icon}@2x.png"){
+        currentCondition.text = String.format("%s:  ",
+            forecast?.weather?.get(0)?.description)
+        icon.load(String.format(imageUrl, forecast?.weather?.get(0)?.icon)) {
             error(R.mipmap.ic_launcher)
             placeholder(R.mipmap.ic_launcher_round)
         }

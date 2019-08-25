@@ -18,5 +18,6 @@ class ForecastModule {
             .build()
 
     @Provides
-    fun providesForecastService(retrofit: Retrofit) = retrofit.create(ForecastService::class.java)
+    fun providesForecastService(retrofit: Retrofit) =
+        retrofit.create(ForecastService::class.java)
 }

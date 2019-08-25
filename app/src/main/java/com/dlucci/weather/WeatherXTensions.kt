@@ -18,8 +18,8 @@ fun Context.inflate(parent: ViewGroup, id: Int): View {
     return layoutInflater.inflate(id, parent, false)
 }
 
-fun Double.toFarenheit() : String {
+fun Double.toFarenheit(): String {
     var df = DecimalFormat("###.##")
     df.roundingMode = RoundingMode.FLOOR
-    return df.format((288.45-273.15) * (9/5.0) + 32).toDouble().toString()
+    return df.format((this - 273.15) * (9 / 5.0) + 32).toDouble().toString()
 }
