@@ -9,24 +9,23 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import coil.api.load
 import com.dlucci.weather.R
-import com.dlucci.weather.forecast.di.DaggerForecastComponent
-import com.dlucci.weather.forecast.di.ForecastModule
 import com.dlucci.weather.forecast.model.Forecast
 import com.dlucci.weather.forecast.networking.ForecastService
 import com.dlucci.weather.inflate
 import com.dlucci.weather.toFarenheit
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
 import kotlinx.android.synthetic.main.forecast_fragment.currentCondition
 import kotlinx.android.synthetic.main.forecast_fragment.icon
 import kotlinx.android.synthetic.main.forecast_fragment.location
 import kotlinx.android.synthetic.main.forecast_fragment.temperature
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class ForecastFragment : Fragment() {
+class ForecastFragment : Fragment(), KoinComponent{
 
-    @Inject
-    lateinit var service: ForecastService
+
+    val service: ForecastService by inject()
 
     val imageUrl = "https://openweathermap.org/img/wn/%s@2x.png"
 
@@ -44,12 +43,6 @@ class ForecastFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
-        var component = DaggerForecastComponent.builder()
-            .forecastModule(ForecastModule())
-            .build()
-
-        component.inject(this)
 
         service.getCurrentWeather("London,uk",
             "1c9b44ce2c83f81848124307d216d1a9")
