@@ -1,2 +1,2 @@
-include ':app', ':networking', ':ui', ':utils'
+include ':app', ':networking', ':ui', ':utils', ':di'
 rootProject.name='Weather'
