@@ -1,4 +1,4 @@
-package com.dlucci.weather.forecast.ui
+package com.dlucci.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import coil.api.load
-import com.dlucci.weather.R
-import com.dlucci.weather.forecast.model.Forecast
-import com.dlucci.weather.forecast.networking.ForecastService
-import com.dlucci.weather.inflate
-import com.dlucci.weather.toFarenheit
+import com.dlucci.new_networking.Forecast
+import com.dlucci.new_networking.ForecastService
+import com.dlucci.utils.inflate
+import com.dlucci.utils.toFarenheit
+
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.forecast_fragment.currentCondition
@@ -22,8 +22,11 @@ import kotlinx.android.synthetic.main.forecast_fragment.temperature
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class ForecastFragment : Fragment(), KoinComponent{
+/**
+ * TODO:  Make an extensions module and put WeatherXtensions.kt inside that module
+ */
 
+class ForecastFragment : Fragment(), KoinComponent{
 
     val service: ForecastService by inject()
 

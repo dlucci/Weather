@@ -1,4 +1,4 @@
-package com.dlucci.weather
+package com.dlucci.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

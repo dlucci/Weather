@@ -1,5 +1,6 @@
 package com.dlucci.weather
 
+import com.dlucci.utils.toFarenheit
 import org.junit.Assert.assertTrue
 import org.junit.Test
 

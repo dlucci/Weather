@@ -1,4 +1,4 @@
-package com.dlucci.weather
+package com.dlucci.utils
 
 import android.content.Context
 import android.os.Bundle

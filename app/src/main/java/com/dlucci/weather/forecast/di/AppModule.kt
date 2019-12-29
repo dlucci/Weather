@@ -1,6 +1,7 @@
 package com.dlucci.weather.forecast.di
 
-import com.dlucci.weather.forecast.networking.ForecastService
+
+import com.dlucci.new_networking.ForecastService
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
