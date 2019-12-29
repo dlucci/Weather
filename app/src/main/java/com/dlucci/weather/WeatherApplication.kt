@@ -1,7 +1,6 @@
 package com.dlucci.weather;
 
-import android.app.Application;
-import com.dlucci.weather.forecast.di.networkModule
+import android.app.Application
 import org.koin.core.context.startKoin
 
 class WeatherApplication() : Application() {
@@ -10,7 +9,7 @@ class WeatherApplication() : Application() {
         super.onCreate()
 
         startKoin {
-            modules(listOf(networkModule))
+            modules(listOf(com.dlucci.di.networkModule))
         }
     }
 

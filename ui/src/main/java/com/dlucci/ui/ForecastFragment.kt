@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import coil.api.load
-import com.dlucci.new_networking.Forecast
-import com.dlucci.new_networking.ForecastService
+import com.dlucci.networking.Forecast
+import com.dlucci.networking.ForecastService
 import com.dlucci.utils.inflate
 import com.dlucci.utils.toFarenheit
 

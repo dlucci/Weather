@@ -1,4 +1,4 @@
-package com.dlucci.new_networking
+package com.dlucci.networking
 
 import com.google.gson.annotations.SerializedName
 
