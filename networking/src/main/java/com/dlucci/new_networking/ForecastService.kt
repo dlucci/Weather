@@ -1,6 +1,6 @@
-package com.dlucci.weather.forecast.networking
+package com.dlucci.new_networking
 
-import com.dlucci.weather.forecast.model.Forecast
+
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

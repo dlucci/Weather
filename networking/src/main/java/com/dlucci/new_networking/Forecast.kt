@@ -1,4 +1,4 @@
-package com.dlucci.weather.forecast.model
+package com.dlucci.new_networking
 
 import com.google.gson.annotations.SerializedName
 
