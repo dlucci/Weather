@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion compile_sdk.toInteger()
+    buildToolsVersion android_build_tools
 
     defaultConfig {
-        minSdkVersion 24
-        targetSdkVersion 29
+        minSdkVersion min_sdk.toInteger()
+        targetSdkVersion compile_sdk.toInteger()
         versionCode 1
         versionName "1.0"
 
@@ -37,16 +37,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "io.coil-kt:coil:$koil"
+    implementation "org.koin:koin-core:$koin"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava"
+
     implementation project(":networking")
     implementation project(":utils")
-    implementation 'io.coil-kt:coil:0.6.1'
-    implementation "org.koin:koin-core:$koin_version"
-
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
